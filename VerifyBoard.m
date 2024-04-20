@@ -2,7 +2,7 @@ function [is_true,msg] = VerifyBoard(original,soln)
 %VerifyBoard This function verifies the correctness of a given solution
 
 % Verify dimensions
-if ~isequal(size(soln),[9,9]) 
+if ~isequal(size(soln),[9,9])
     is_true = false;
     msg = "Incorrect solution dimensions";
     return
@@ -34,7 +34,7 @@ for idx1 = 1:9
             is_true = false;
             msg = "Solution contains more than one " + string(soln(idx1,idx2)) + " in row " + string(idx1);
             return
-        else 
+        else
             row_val_present(soln(idx1,idx2)) = true;
         end
 

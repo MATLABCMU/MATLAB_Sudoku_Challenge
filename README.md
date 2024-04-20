@@ -21,9 +21,9 @@ In order to test your function, a there is a simple test bench in main.m which r
 The test cases will be run on a 2021 M1 Macbook Pro.
 
 ### Submission
-Once you have a solution you are satisfied with, submit your completed SudokuSolver.m in this [Google Form.](https://forms.gle/SenqjRtaqS77Ne677)
+Once you have a solution you are satisfied with, submit your completed SudokuSolver.m in this [Google Form.](https://forms.gle/SenqjRtaqS77Ne677) Feel free to submit as many times as you want!
 
-### File Outline:
+### File Outline
 
 * test_boards: Directory containing all test board files
   * README.txt: Instructions on how to format new test cases
@@ -36,4 +36,8 @@ Once you have a solution you are satisfied with, submit your completed SudokuSol
 * VerifyBoard.m: A function used to verify if the user's solver's solution is a valid one.
 
 
-
+## Timeline
+* Final submission: Saturday, Apr 27, 11:59 pm.
+  * Submit as many times as you want in this [Google Form.](https://forms.gle/SenqjRtaqS77Ne677)
+* Results will be announced on Sunday.
+* Prize delivery begins on Monday, Apr 29. Further details TBD.

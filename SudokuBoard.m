@@ -19,77 +19,77 @@ classdef SudokuBoard
     methods (Access = private)
         function obj = parse_sudoku_file(obj, filename)
             try
-            text = fileread(filename);
-            lines = split(text,newline);
+                text = fileread(filename);
+                lines = split(text,newline);
 
-            acc_lines = [];
-            idx = 0;
-            newline_after_start = false;
+                acc_lines = [];
+                idx = 0;
+                newline_after_start = false;
 
-            for idx = 1:length(lines)
-                line = strtrim(lines{idx});
+                for idx = 1:length(lines)
+                    line = strtrim(lines{idx});
 
-                temp_line = [];
-                if isempty(line)
-                    newline_after_start=true;
-                    break
-                end
+                    temp_line = [];
+                    if isempty(line)
+                        newline_after_start=true;
+                        break
+                    end
 
-                line_arr = split(line," ");
-                if length(line_arr) ~= 9
-                    disp("Failed to parse file " + filename + ": not 9 digits in line")
-                    obj.Input_Board = false;
-                    return
-                end
-
-                for num_idx = 1:length(line_arr)
-                    num_str = line_arr{num_idx};
-
-                    num = str2double(num_str);
-                    if (num > 9 || num < 0 || isnan(num))
-                        disp("Failed to parse file " + filename + ": digits not 0-9")
+                    line_arr = split(line," ");
+                    if length(line_arr) ~= 9
+                        disp("Failed to parse file " + filename + ": not 9 digits in line")
                         obj.Input_Board = false;
                         return
                     end
 
-                    temp_line = [temp_line, num];
+                    for num_idx = 1:length(line_arr)
+                        num_str = line_arr{num_idx};
+
+                        num = str2double(num_str);
+                        if (num > 9 || num < 0 || isnan(num))
+                            disp("Failed to parse file " + filename + ": digits not 0-9")
+                            obj.Input_Board = false;
+                            return
+                        end
+
+                        temp_line = [temp_line, num];
+                    end
+                    acc_lines = [acc_lines ; temp_line];
                 end
-                acc_lines = [acc_lines ; temp_line];
-            end
 
-            [valid,msg] = obj.verify_input_board(acc_lines);
-            if ~valid
-                fprintf("Invalid Input " + filename + ": " + msg + "\n\n");
-                obj.Input_Board = false;
-                return
-            end
-
-
-            if idx == 9 && ~newline_after_start
-                obj.Input_Board = acc_lines;
-                return
-            end
-
-            if ~(idx == 10 && newline_after_start)
-                disp("Failed to parse file " + filename + ": Incorrect row count")
-                obj.Input_Board = false;
-                return
-            end
-
-            while idx < length(lines)
-                line = strtrim(lines{idx});
-                if ~isempty(line)
-                    break
+                [valid,msg] = obj.verify_input_board(acc_lines);
+                if ~valid
+                    fprintf("Invalid Input " + filename + ": " + msg + "\n\n");
+                    obj.Input_Board = false;
+                    return
                 end
-            end
 
-            if idx >= length(lines)
-                obj.Input_Board = acc_lines;
-                return
-            end
 
-            disp("Failed to parse file " + filename + ": Extra characters present after matrix")
-            obj.Input_Board = false;
+                if idx == 9 && ~newline_after_start
+                    obj.Input_Board = acc_lines;
+                    return
+                end
+
+                if ~(idx == 10 && newline_after_start)
+                    disp("Failed to parse file " + filename + ": Incorrect row count")
+                    obj.Input_Board = false;
+                    return
+                end
+
+                while idx < length(lines)
+                    line = strtrim(lines{idx});
+                    if ~isempty(line)
+                        break
+                    end
+                end
+
+                if idx >= length(lines)
+                    obj.Input_Board = acc_lines;
+                    return
+                end
+
+                disp("Failed to parse file " + filename + ": Extra characters present after matrix")
+                obj.Input_Board = false;
             catch
                 disp("Unable to parse file " + filename)
                 obj.Input_Board = false;
@@ -169,8 +169,6 @@ classdef SudokuBoard
                     end
                 end
             end
-% TODO automatic indentation
-
             is_true = true;
             msg = "";
         end
