@@ -15,13 +15,21 @@ Your job is to implement the SudokuSolver() function in SudokuSolver.m. It takes
 
 The input matrices contain digits 1 through 9 in positions where the input is filled in, and 0 where you should fill in a value.
 
+### Starter Code
+
 In order to test your function, a there is a simple test bench in main.m which runs all of the unit tests in the test_boards directory. More information on the format of the unit tests can be found in test_boards/README.txt.
 
-### Hardware
-The test cases will be run on a 2021 M1 Macbook Pro.
+In order to download the starter code, you can: 
+```
+git clone https://github.com/MATLABCMU/MATLAB_Sudoku_Challenge.git
+```
+Or if you don't have git installed, you can download the starter code as a .zip file by clicking on the green '<> code' button at the top of the GitHub page and selecting 'Download Zip'.
 
 ### Submission
 Once you have a solution you are satisfied with, submit your completed SudokuSolver.m in this [Google Form.](https://forms.gle/SenqjRtaqS77Ne677) Feel free to submit as many times as you want!
+
+### Hardware
+The test cases will be run on a 2021 M1 Macbook Pro.
 
 ### File Outline
 
@@ -41,3 +49,8 @@ Once you have a solution you are satisfied with, submit your completed SudokuSol
   * Submit as many times as you want in this [Google Form.](https://forms.gle/SenqjRtaqS77Ne677)
 * Results will be announced on Sunday.
 * Prize delivery begins on Monday, Apr 29. Further details TBD.
+
+## Contact Me
+If you find any issues in the starter code, or have any questions on how to use it, please let me know in the [MATLAB CMU Discord Server](https://discord.gg/aM2RHMug)!
+
+For more news on MATLAB events, make sure to follow [@matlabcmu](https://www.instagram.com/matlabcmu/) on Instagram!
