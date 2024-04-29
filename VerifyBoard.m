@@ -34,7 +34,7 @@ for idx1 = 1:9
             is_true = false;
             msg = "Solution contains more than one " + string(soln(idx1,idx2)) + " in row " + string(idx1);
             return
-        else
+        else 
             row_val_present(soln(idx1,idx2)) = true;
         end
 
@@ -55,10 +55,12 @@ for idx1 = 1:3
         square_val_present = zeros(9,1,'logical');
         for idx3 = 1:3
             for idx4 = 1:3
-                if square_val_present(soln(idx1+idx3,idx2+idx4))
+                if square_val_present(soln((idx1-1)*3+idx3,(idx2-1)*3+idx4))
                     is_true = false;
-                    msg = "Solution contains more than one " + string(soln(idx1+idx3,idx2+idx4)) + " in big square ("+ string(idx1) + "," + string(idx2) + ")";
+                    msg = "Solution contains more than one " + string(soln((idx1-1)*3+idx3,(idx2-1)*3+idx4)) + " in big square ("+ string(idx1) + "," + string(idx2) + ")";
                     return
+                else
+                    square_val_present(soln((idx1-1)*3+idx3,(idx2-1)*3+idx4)) = true;
                 end
             end
         end
